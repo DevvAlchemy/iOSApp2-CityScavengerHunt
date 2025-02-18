@@ -7,12 +7,10 @@
 
 import SwiftUI
 
-struct ScavengerHuntItem: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    ScavengerHuntItem()
+struct ScavengerHuntItem: Identifiable {
+    let id = UUID()
+    let clue: String
+    let businessName: String
+    var isCompleted: Bool = false
+    var image: UIImage?
 }

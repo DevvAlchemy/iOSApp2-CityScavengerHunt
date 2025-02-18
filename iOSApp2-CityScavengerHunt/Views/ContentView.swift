@@ -76,13 +76,12 @@ struct ContentView: View {
                 CameraView(image: $viewModel.cards[selectedCardIndex ?? 0].scavengerHuntItem.image)
                 #endif
             }
-            .onChange(of: selectedItem) { newItem in
+            .onChange(of: selectedItem) { oldItem, newItem in
                 Task {
-                    if let index = selectedCardIndex,
-                       let newItem = newItem,
+                    if let newItem = newItem,
                        let data = try? await newItem.loadTransferable(type: Data.self),
                        let image = UIImage(data: data) {
-                        viewModel.cards[index].scavengerHuntItem.image = image
+                        viewModel.cards[selectedCardIndex ?? 0].scavengerHuntItem.image = image
                     }
                 }
             }

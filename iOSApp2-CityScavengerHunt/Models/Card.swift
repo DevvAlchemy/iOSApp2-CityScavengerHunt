@@ -7,12 +7,9 @@
 
 import SwiftUI
 
-struct Card: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+struct Card: Identifiable {
+    let id = UUID()
+    let backgroundColor: Color
+    var scavengerHuntItem: ScavengerHuntItem
 }
 
-#Preview {
-    Card()
-}
